@@ -1,9 +1,0 @@
-{
-  "/api/checkout/coaching/route": "app/api/checkout/coaching/route.js",
-  "/consult/page": "app/consult/page.js",
-  "/program/coaching/page": "app/program/coaching/page.js",
-  "/page": "app/page.js",
-  "/program/jumpstart/page": "app/program/jumpstart/page.js",
-  "/program/coaching/welcome/page": "app/program/coaching/welcome/page.js",
-  "/products/page": "app/products/page.js"
-}
