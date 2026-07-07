@@ -146,7 +146,7 @@ export default function ConsultPage() {
                 ))}
               </ul>
 
-              <p className="mt-6 text-center text-white/35 text-[13px] font-medium line-through">
+              <p className="mt-6 text-center text-white/45 text-[18px] font-bold line-through">
                 {option.originalPrice}
               </p>
               <CalBookButton
