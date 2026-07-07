@@ -49,8 +49,14 @@ const Fitness = () => (
         variants={fadeIn("left", "tween", 0.2, 1)}
         className="relative w-full max-w-[320px] aspect-square shrink-0"
       >
-        <div className="w-full h-full rounded-[32px] bg-gradient-to-br from-red-600/25 via-black-100 to-black/40 border border-white/10 flex items-center justify-center text-[88px]">
-          🏋️
+        <div className="relative w-full h-full rounded-[32px] overflow-hidden border border-white/10">
+          <Image
+            src="/fitness/workouts-logged.png"
+            alt=""
+            fill
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-transparent to-black/50" />
         </div>
         <div className="absolute -bottom-6 -left-6 bg-black-100 border border-white/10 rounded-2xl px-5 py-4 shadow-card">
           <p className="text-white font-black text-[24px]">{fitnessStats[0].value}</p>
@@ -64,34 +70,15 @@ const Fitness = () => (
     </div>
 
     <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-5">
-      {fitnessStats.map((stat) =>
-        stat.label === "Workouts logged" ? (
-          <div
-            key={stat.label}
-            className="relative min-h-[140px] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-end p-6 text-center"
-          >
-            <Image
-              src="/fitness/workouts-logged.png"
-              alt=""
-              fill
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/10" />
-            <div className="relative z-10">
-              <p className="text-white font-black text-[26px]">{stat.value}</p>
-              <p className="text-white/80 text-[12px] mt-1">{stat.label}</p>
-            </div>
-          </div>
-        ) : (
-          <div
-            key={stat.label}
-            className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10"
-          >
-            <p className="text-white font-black text-[26px]">{stat.value}</p>
-            <p className="text-secondary text-[12px] mt-1">{stat.label}</p>
-          </div>
-        )
-      )}
+      {fitnessStats.map((stat) => (
+        <div
+          key={stat.label}
+          className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10"
+        >
+          <p className="text-white font-black text-[26px]">{stat.value}</p>
+          <p className="text-secondary text-[12px] mt-1">{stat.label}</p>
+        </div>
+      ))}
     </div>
 
     <motion.div variants={textVariant()} className="mt-20">
