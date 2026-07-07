@@ -3,12 +3,11 @@ import Link from "next/link";
 import { getCoachingAccess } from "../../../lib/program/coachingAccess";
 import MagicLinkForm from "../../../components/program/MagicLinkForm";
 import ManageSubscriptionButton from "../../../components/program/ManageSubscriptionButton";
+import CalEmbed from "../../../components/program/CalEmbed";
 
 export const metadata = {
   title: "Live Coach Consultation | Mr. Discipline",
 };
-
-const CAL_EMBED_URL = "https://cal.com/chukwudi-oshilim/coaching-hour?theme=dark";
 
 export default async function CoachingPage() {
   const access = await getCoachingAccess();
@@ -95,7 +94,11 @@ export default async function CoachingPage() {
         </div>
 
         <div className="mt-10 rounded-2xl overflow-hidden border border-red-500/30 bg-white/[0.03]">
-          <iframe src={CAL_EMBED_URL} className="w-full h-[700px]" title="Book your coaching call" />
+          <CalEmbed
+            calLink="chukwudi-oshilim/coaching-hour"
+            namespace="coaching-hour-subscriber"
+            className="h-[700px]"
+          />
         </div>
 
         <div className="mt-8">

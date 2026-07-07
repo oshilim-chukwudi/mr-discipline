@@ -1,16 +1,76 @@
 import Link from "next/link";
 
+import CalEmbed from "../../components/program/CalEmbed";
+
 export const metadata = {
   title: "Book a Call | Chukwudi Oshilim",
   description: "Book a quick call or a full coaching hour with Chukwudi Oshilim.",
 };
 
-const CAL_BASE = "https://cal.com/chukwudi-oshilim";
+const TRUST_POINTS = [
+  "Same-week booking",
+  "Real 1-on-1 time, no sales pitch",
+  "Cancel or reschedule any time",
+];
+
+interface CallOption {
+  namespace: string;
+  calLink: string;
+  name: string;
+  price: string;
+  duration: string;
+  tagline: string;
+  bullets: string[];
+  featured?: boolean;
+}
+
+const CALL_OPTIONS: CallOption[] = [
+  {
+    namespace: "quick-call",
+    calLink: "chukwudi-oshilim/quick-call",
+    name: "Quick Call",
+    price: "$1",
+    duration: "15 minutes",
+    tagline: "A short intro call — meet me and see if we're a fit, low-stakes.",
+    bullets: [
+      "Quick questions or a fast check-in",
+      "No commitment beyond the call",
+      "Great first step before a full session",
+    ],
+  },
+  {
+    namespace: "focus-session",
+    calLink: "chukwudi-oshilim/focus-session",
+    name: "Focus Session",
+    price: "$20",
+    duration: "30 minutes",
+    tagline: "Enough time to work through one problem or goal in depth.",
+    bullets: [
+      "Focused time on one specific challenge",
+      "Actionable steps you can start same day",
+      "A good middle ground before a full hour",
+    ],
+  },
+  {
+    namespace: "coaching-hour",
+    calLink: "chukwudi-oshilim/coaching-hour",
+    name: "Coaching Hour",
+    price: "$50",
+    duration: "60 minutes",
+    tagline: "A full session to dig into your goals, questions, or challenges.",
+    bullets: [
+      "A full hour, fully focused on you",
+      "Work through goals or blockers together",
+      "Leave with a clear next step",
+    ],
+    featured: true,
+  },
+];
 
 export default function ConsultPage() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 pt-28 pb-24">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 pt-28 pb-24">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors duration-200"
@@ -18,43 +78,73 @@ export default function ConsultPage() {
           ← Back to portfolio
         </Link>
 
-        <div className="mt-8 text-center">
-          <span className="text-red-500 font-black tracking-[0.2em] text-[13px] uppercase">
-            Book a call
+        <div className="mt-10 text-center">
+          <span className="inline-block text-red-500 font-black tracking-[0.2em] text-[13px] uppercase">
+            Mr. Discipline
           </span>
-          <h1 className="mt-3 text-white font-black text-[36px] sm:text-[48px] leading-tight">
-            Let&apos;s talk.
+          <h1 className="mt-4 text-white font-black text-[40px] sm:text-[56px] leading-tight">
+            Let&apos;s <span className="text-red-600">talk.</span>
           </h1>
-          <p className="mt-4 max-w-lg mx-auto text-white/50 text-[15px]">
-            Pick whichever fits — a quick 15-minute call, or a full coaching hour.
+          <p className="mt-5 max-w-lg mx-auto text-white/50 text-[16px]">
+            Pick whichever fits — a quick chat, a focused half-hour, or a full coaching hour.
+            Booked and paid in one step.
           </p>
-        </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <h2 className="text-white font-bold text-[20px]">Quick Call — $15</h2>
-            <p className="mt-1 text-white/50 text-[13px]">15 minutes</p>
-            <div className="mt-4 rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03]">
-              <iframe
-                src={`${CAL_BASE}/quick-call?theme=dark`}
-                className="w-full h-[700px]"
-                title="Book a Quick Call"
-              />
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-white font-bold text-[20px]">Coaching Hour — $50</h2>
-            <p className="mt-1 text-white/50 text-[13px]">60 minutes</p>
-            <div className="mt-4 rounded-2xl overflow-hidden border border-red-500/30 bg-white/[0.03]">
-              <iframe
-                src={`${CAL_BASE}/coaching-hour?theme=dark`}
-                className="w-full h-[700px]"
-                title="Book a Coaching Hour"
-              />
-            </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {TRUST_POINTS.map((point) => (
+              <span key={point} className="flex items-center gap-2 text-white/60 text-[13px]">
+                <span className="text-red-500">✓</span>
+                {point}
+              </span>
+            ))}
           </div>
         </div>
+
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {CALL_OPTIONS.map((option) => (
+            <div
+              key={option.namespace}
+              className={`relative flex flex-col rounded-2xl bg-white/[0.03] border backdrop-blur-sm transition-colors duration-300 ${
+                option.featured
+                  ? "border-red-500/40 shadow-[0_0_50px_-15px_rgba(220,38,38,0.5)]"
+                  : "border-white/10 hover:border-red-500/30"
+              }`}
+            >
+              {option.featured && (
+                <span className="absolute -top-3 left-8 bg-red-600 text-white text-[11px] font-bold tracking-wide px-3 py-1 rounded-full">
+                  MOST POPULAR
+                </span>
+              )}
+
+              <div className="p-8 pb-6">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h2 className="text-white font-bold text-[22px]">{option.name}</h2>
+                  <span className="text-white font-black text-[26px] shrink-0">{option.price}</span>
+                </div>
+                <p className="mt-1 text-white/40 text-[13px]">{option.duration}</p>
+                <p className="mt-3 text-white/60 text-[14px] leading-relaxed">{option.tagline}</p>
+
+                <ul className="mt-5 flex flex-col gap-2">
+                  {option.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2 text-white/70 text-[13px]">
+                      <span className="text-red-500 shrink-0 mt-[2px]">✓</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mx-4 mb-4 rounded-xl overflow-hidden border border-white/10 bg-black/40">
+                <CalEmbed calLink={option.calLink} namespace={option.namespace} className="h-[650px]" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-center text-white/30 text-[12px]">
+          All times shown in your local timezone. Payment is handled securely at booking — no
+          account needed.
+        </p>
       </div>
     </div>
   );
