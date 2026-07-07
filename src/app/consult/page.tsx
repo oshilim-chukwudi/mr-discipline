@@ -3,7 +3,12 @@ import { Inter } from "next/font/google";
 
 import CalBookButton from "../../components/program/CalBookButton";
 
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Book a Call | Chukwudi Oshilim",
@@ -72,7 +77,7 @@ const CALL_OPTIONS: CallOption[] = [
 
 export default function ConsultPage() {
   return (
-    <div className={`min-h-screen bg-black ${inter.className}`}>
+    <div className={`min-h-screen bg-black font-inter-scope ${inter.variable}`}>
       <div className="max-w-5xl mx-auto px-6 sm:px-10 pt-28 pb-24">
         <Link
           href="/"

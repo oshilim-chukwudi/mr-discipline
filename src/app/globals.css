@@ -11,6 +11,11 @@
   color-scheme: dark;
 }
 
+.font-inter-scope,
+.font-inter-scope * {
+  font-family: var(--font-inter), ui-sans-serif, sans-serif;
+}
+
 html {
   scroll-snap-type: y proximity;
 }
