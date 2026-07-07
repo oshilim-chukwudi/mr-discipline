@@ -1,18 +1,20 @@
 {
-  "components/canvas/index.ts -> ./Ball": {
-    "id": "components/canvas/index.ts -> ./Ball",
-    "files": []
-  },
   "components/canvas/index.ts -> ./Computers": {
     "id": "components/canvas/index.ts -> ./Computers",
-    "files": []
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_canvas_Computers_tsx.js"
+    ]
   },
   "components/canvas/index.ts -> ./Earth": {
     "id": "components/canvas/index.ts -> ./Earth",
-    "files": []
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_canvas_Earth_tsx.js"
+    ]
   },
   "components/canvas/index.ts -> ./Stars": {
     "id": "components/canvas/index.ts -> ./Stars",
-    "files": []
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_canvas_Stars_tsx.js"
+    ]
   }
 }

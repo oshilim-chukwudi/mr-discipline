@@ -1,33 +1,21 @@
-import {
-  Navbar,
-  Hero,
-  About,
-  Experience,
-  Tech,
-  Works,
-  Feedbacks,
-  Contact,
-} from "../components";
-import { StarsCanvas } from "../components/canvas";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Tech from "../components/Tech";
+import Works from "../components/Works";
+import Feedbacks from "../components/Feedbacks";
+import Fitness from "../components/Fitness";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
-    <main className="relative z-0 bg-primary">
-      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-        <Navbar />
-        <Hero />
-      </div>
-
+    <>
+      <Hero />
       <About />
-      <Experience />
       <Tech />
       <Works />
       <Feedbacks />
-
-      <div className="relative z-0">
-        <Contact />
-        <StarsCanvas />
-      </div>
-    </main>
+      <Fitness />
+      <Contact />
+    </>
   );
 }
