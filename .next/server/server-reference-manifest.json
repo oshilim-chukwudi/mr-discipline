@@ -1,14 +1,5 @@
 {
-  "node": {
-    "ec163d4122f947404cc9408bac27c75580c06e0e": {
-      "workers": {
-        "app/program/jumpstart/day/[n]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fchukwudioshilim%2FDocuments%2FChuks_3DPortofolio%2Fproject_3D_developer_portfolio%2Fsrc%2Fapp%2Fprogram%2Fjumpstart%2Fday%2F%5Bn%5D%2Factions.ts%22%2C%5B%22markDayComplete%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/program/jumpstart/day/[n]/page": "action-browser"
-      }
-    }
-  },
+  "node": {},
   "edge": {},
-  "encryptionKey": "CpQW/lH6LTH60SUsZtQ9JIXnibnmE5ij2HzVtbAV9B0="
+  "encryptionKey": "2XoxsE7/g/orj7/oIfnsYwV+zjpEHFbzmGt+sdDc2Nk="
 }
