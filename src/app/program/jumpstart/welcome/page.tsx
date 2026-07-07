@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { getStripe } from "../../../../lib/stripe";
 import { createClient } from "../../../../lib/supabase/server";
 import MagicLinkForm from "../../../../components/program/MagicLinkForm";
+import PurchaseTracker from "../../../../components/analytics/PurchaseTracker";
 
 export const metadata = {
   title: "Welcome to JumpStart | Mr. Discipline",
@@ -13,19 +14,26 @@ interface WelcomePageProps {
   searchParams: { session_id?: string };
 }
 
-async function resolvePurchaseEmail(sessionId: string | undefined) {
+async function resolvePurchaseDetails(sessionId: string | undefined) {
   if (!sessionId || !process.env.STRIPE_SECRET_KEY) return null;
   try {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    return session.customer_details?.email ?? session.customer_email ?? null;
+    const email = session.customer_details?.email ?? session.customer_email ?? null;
+    if (!email) return null;
+    return {
+      email,
+      amount: (session.amount_total ?? 0) / 100,
+      currency: (session.currency ?? "usd").toUpperCase(),
+    };
   } catch {
     return null;
   }
 }
 
 export default async function JumpstartWelcomePage({ searchParams }: WelcomePageProps) {
-  const email = await resolvePurchaseEmail(searchParams.session_id);
+  const purchase = await resolvePurchaseDetails(searchParams.session_id);
+  const email = purchase?.email ?? null;
 
   if (email) {
     const origin =
@@ -41,6 +49,14 @@ export default async function JumpstartWelcomePage({ searchParams }: WelcomePage
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      {searchParams.session_id && purchase && (
+        <PurchaseTracker
+          eventId={searchParams.session_id}
+          value={purchase.amount}
+          currency={purchase.currency}
+          contentName="JumpStart"
+        />
+      )}
       <div className="max-w-md w-full text-center py-24">
         <span className="inline-block text-red-500 font-black tracking-[0.2em] text-[13px] uppercase">
           Mr. Discipline
