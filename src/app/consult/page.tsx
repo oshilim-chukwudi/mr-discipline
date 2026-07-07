@@ -26,6 +26,7 @@ interface CallOption {
   calLink: string;
   name: string;
   price: string;
+  originalPrice: string;
   duration: string;
   tagline: string;
   bullets: string[];
@@ -38,6 +39,7 @@ const CALL_OPTIONS: CallOption[] = [
     calLink: "chukwudi-oshilim/quick-call",
     name: "Quick Call",
     price: "$1",
+    originalPrice: "$15",
     duration: "15 minutes",
     tagline: "A short intro call — meet me and see if we're a fit, low-stakes.",
     bullets: [
@@ -51,6 +53,7 @@ const CALL_OPTIONS: CallOption[] = [
     calLink: "chukwudi-oshilim/focus-session",
     name: "Focus Session",
     price: "$20",
+    originalPrice: "$35",
     duration: "30 minutes",
     tagline: "Enough time to work through one problem or goal in depth.",
     bullets: [
@@ -64,6 +67,7 @@ const CALL_OPTIONS: CallOption[] = [
     calLink: "chukwudi-oshilim/coaching-hour",
     name: "Coaching Hour",
     price: "$50",
+    originalPrice: "$70",
     duration: "60 minutes",
     tagline: "A full session to dig into your goals, questions, or challenges.",
     bullets: [
@@ -124,11 +128,16 @@ export default function ConsultPage() {
                 </span>
               )}
 
-              <div className="flex items-baseline justify-between gap-4">
+              <div className="flex items-start justify-between gap-4">
                 <h2 className="text-white font-semibold text-[19px] tracking-tight">{option.name}</h2>
-                <span className="font-bold text-[24px] tracking-tight tabular-nums shrink-0 text-red-500">
-                  {option.price}
-                </span>
+                <div className="flex flex-col items-end shrink-0">
+                  <span className="font-bold text-[24px] tracking-tight tabular-nums text-red-500">
+                    {option.price}
+                  </span>
+                  <span className="text-white/35 text-[12px] font-medium tracking-wide line-through -mt-0.5">
+                    {option.originalPrice}
+                  </span>
+                </div>
               </div>
               <p className="mt-1 text-white/40 text-[12.5px] font-medium tracking-wide">{option.duration}</p>
               <p className="mt-3 text-white/60 text-[14px] leading-relaxed font-normal">{option.tagline}</p>
