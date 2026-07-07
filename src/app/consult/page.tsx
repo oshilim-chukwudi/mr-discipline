@@ -146,11 +146,7 @@ export default function ConsultPage() {
                 calLink={option.calLink}
                 namespace={option.namespace}
                 label={`Book — ${option.price}`}
-                className={`mt-6 w-full rounded-lg py-3 text-[14px] font-semibold transition-colors duration-200 ${
-                  option.featured
-                    ? "bg-red-600 hover:bg-red-500 text-white"
-                    : "bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10"
-                }`}
+                className="mt-6 w-full rounded-lg py-3 text-[14px] font-semibold text-white bg-red-600 hover:bg-red-500 transition-colors duration-200"
               />
             </div>
           ))}
