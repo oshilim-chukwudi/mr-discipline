@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { Inter } from "next/font/google";
 
-import CalEmbed from "../../components/program/CalEmbed";
+import CalBookButton from "../../components/program/CalBookButton";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
 export const metadata = {
   title: "Book a Call | Chukwudi Oshilim",
@@ -69,8 +72,8 @@ const CALL_OPTIONS: CallOption[] = [
 
 export default function ConsultPage() {
   return (
-    <div className="min-h-screen bg-black">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 pt-28 pb-24">
+    <div className={`min-h-screen bg-black ${inter.className}`}>
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 pt-28 pb-24">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-white/50 hover:text-white text-[14px] font-medium transition-colors duration-200"
@@ -79,10 +82,10 @@ export default function ConsultPage() {
         </Link>
 
         <div className="mt-10 text-center">
-          <span className="inline-block text-red-500 font-black tracking-[0.2em] text-[13px] uppercase">
+          <span className="inline-block text-red-500 font-bold tracking-[0.2em] text-[13px] uppercase">
             Mr. Discipline
           </span>
-          <h1 className="mt-4 text-white font-black text-[40px] sm:text-[56px] leading-tight">
+          <h1 className="mt-4 text-white font-extrabold text-[40px] sm:text-[52px] leading-tight tracking-tight">
             Let&apos;s <span className="text-red-600">talk.</span>
           </h1>
           <p className="mt-5 max-w-lg mx-auto text-white/50 text-[16px]">
@@ -100,43 +103,50 @@ export default function ConsultPage() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {CALL_OPTIONS.map((option) => (
             <div
               key={option.namespace}
-              className={`relative flex flex-col rounded-2xl bg-white/[0.03] border backdrop-blur-sm transition-colors duration-300 ${
+              className={`relative flex flex-col rounded-2xl bg-white/[0.03] border backdrop-blur-sm transition-colors duration-300 p-7 ${
                 option.featured
                   ? "border-red-500/40 shadow-[0_0_50px_-15px_rgba(220,38,38,0.5)]"
                   : "border-white/10 hover:border-red-500/30"
               }`}
             >
               {option.featured && (
-                <span className="absolute -top-3 left-8 bg-red-600 text-white text-[11px] font-bold tracking-wide px-3 py-1 rounded-full">
+                <span className="absolute -top-3 left-7 bg-red-600 text-white text-[11px] font-bold tracking-wide px-3 py-1 rounded-full">
                   MOST POPULAR
                 </span>
               )}
 
-              <div className="p-8 pb-6">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h2 className="text-white font-bold text-[22px]">{option.name}</h2>
-                  <span className="text-white font-black text-[26px] shrink-0">{option.price}</span>
-                </div>
-                <p className="mt-1 text-white/40 text-[13px]">{option.duration}</p>
-                <p className="mt-3 text-white/60 text-[14px] leading-relaxed">{option.tagline}</p>
-
-                <ul className="mt-5 flex flex-col gap-2">
-                  {option.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-white/70 text-[13px]">
-                      <span className="text-red-500 shrink-0 mt-[2px]">✓</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-white font-semibold text-[19px] tracking-tight">{option.name}</h2>
+                <span className="font-bold text-[24px] tracking-tight tabular-nums shrink-0 text-red-500">
+                  {option.price}
+                </span>
               </div>
+              <p className="mt-1 text-white/40 text-[12.5px] font-medium tracking-wide">{option.duration}</p>
+              <p className="mt-3 text-white/60 text-[14px] leading-relaxed font-normal">{option.tagline}</p>
 
-              <div className="mx-4 mb-4 rounded-xl overflow-hidden border border-white/10 bg-black/40">
-                <CalEmbed calLink={option.calLink} namespace={option.namespace} className="h-[650px]" />
-              </div>
+              <ul className="mt-5 flex flex-col gap-2">
+                {option.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-2 text-white/70 text-[13px] font-normal">
+                    <span className="text-red-500 shrink-0 mt-[2px]">✓</span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+
+              <CalBookButton
+                calLink={option.calLink}
+                namespace={option.namespace}
+                label={`Book — ${option.price}`}
+                className={`mt-6 w-full rounded-lg py-3 text-[14px] font-semibold transition-colors duration-200 ${
+                  option.featured
+                    ? "bg-red-600 hover:bg-red-500 text-white"
+                    : "bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10"
+                }`}
+              />
             </div>
           ))}
         </div>
