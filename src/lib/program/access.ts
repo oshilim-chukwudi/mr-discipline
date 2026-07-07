@@ -27,6 +27,8 @@ export async function getJumpstartAccess(programSlug: string): Promise<Jumpstart
     .from("purchases")
     .select("id")
     .eq("program_slug", programSlug)
+    .order("created_at", { ascending: false })
+    .limit(1)
     .maybeSingle();
 
   if (!purchase) {
