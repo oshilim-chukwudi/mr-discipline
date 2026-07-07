@@ -15,14 +15,10 @@ import {
   git,
   figma,
   docker,
-  focal,
-  delta,
   carrent,
   jobit,
   tripguide,
   threejs,
-  tecom,
-  smedan,
 } from "../assets";
 
 export interface NavLink {
@@ -38,17 +34,6 @@ export interface Service {
 export interface Technology {
   name: string;
   icon: string;
-}
-
-export interface Experience {
-  title: string;
-  company_name: string;
-  icon: string | null;
-  iconBg: string;
-  date: string;
-  current?: boolean;
-  tags?: string[];
-  points: string[];
 }
 
 export interface Testimonial {
@@ -72,9 +57,36 @@ export interface Project {
   source_code_link: string;
 }
 
+export interface Product {
+  slug: string;
+  name: string;
+  price: number;
+  billingSuffix?: string;
+  free?: boolean;
+  flagship?: boolean;
+  tagline: string;
+  bullets: string[];
+  pdfFile?: string;
+  stripeLink?: string;
+  checkoutEndpoint?: string;
+  href?: string;
+}
+
+export interface FitnessStat {
+  label: string;
+  value: string;
+}
+
+export interface FitnessFocus {
+  title: string;
+  description: string;
+}
+
 export const navLinks: NavLink[] = [
   { id: "about", title: "About" },
-  { id: "work", title: "Work" },
+  { id: "tech", title: "Tech" },
+  { id: "works", title: "Projects" },
+  { id: "fitness", title: "Fitness" },
   { id: "contact", title: "Contact" },
 ];
 
@@ -99,81 +111,6 @@ const technologies: Technology[] = [
   { name: "git", icon: git },
   { name: "figma", icon: figma },
   { name: "docker", icon: docker },
-];
-
-const experiences: Experience[] = [
-  {
-    title: "Frontend Developer",
-    company_name: "Tecomgroup, Nizhny Novgorod, Russia",
-    icon: tecom,
-    iconBg: "#383E56",
-    date: "Jan 2018 — Jun 2018",
-    tags: ["HTML/CSS", "JavaScript", "REST API"],
-    points: [
-      "Transformed design mockups and wireframes into pixel-perfect, functional web pages.",
-      "Integrated front-end components with server-side logic and RESTful APIs.",
-      "Ensured responsive design and cross-browser compatibility across all deliverables.",
-      "Participated in code reviews, contributing constructive feedback to peers.",
-    ],
-  },
-  {
-    title: "Software Developer",
-    company_name: "SMEDAN, Abuja, Nigeria",
-    icon: smedan,
-    iconBg: "#E6DEDD",
-    date: "Aug 2019 — Apr 2021",
-    tags: ["React", "Node.js", "MongoDB"],
-    points: [
-      "Built and maintained web applications using React.js and modern JavaScript tooling.",
-      "Collaborated with designers and product managers to ship high-quality features.",
-      "Delivered responsive, accessible UIs across a range of government-facing products.",
-      "Drove improvements to internal tooling that reduced deployment time by 30%.",
-    ],
-  },
-  {
-    title: "Associate Developer",
-    company_name: "Delta Hotels by Marriott, ON, Canada",
-    icon: delta,
-    iconBg: "#383E56",
-    date: "Nov 2021 — Dec 2022",
-    tags: ["UI/UX", "JavaScript", "Testing"],
-    points: [
-      "Designed and developed interactive UI components using HTML, CSS, and JavaScript.",
-      "Implemented animations and micro-interactions to elevate the guest-facing experience.",
-      "Wrote automated unit tests and participated in QA cycles to maintain quality standards.",
-      "Ensured WCAG accessibility compliance across all front-end deliverables.",
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company_name: "Focal Systems, California, USA",
-    icon: focal,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 — Dec 2023",
-    tags: ["React", "Node.js", "AI/ML", "Tailwind"],
-    points: [
-      "Built responsive front-end layouts in React + Tailwind CSS and optimized Node.js/MongoDB back-end services.",
-      "Designed and developed AI-based data analysis algorithms with the robotics engineering team.",
-      "Owned end-to-end features across the stack — from database schema to production deployment.",
-      "Led cross-functional sprint planning with designers, PMs, and backend engineers.",
-    ],
-  },
-  {
-    title: "QA Security & Tech Lead",
-    company_name: "BioAro, Canada",
-    icon: null,
-    iconBg: "#0f172a",
-    date: "Jan 2024 — Present",
-    current: true,
-    tags: ["Security", "QA Lead", "TypeScript", "CI/CD"],
-    points: [
-      "Lead end-to-end QA strategy covering manual, automated, and security testing across the full product lifecycle.",
-      "Conduct security assessments, threat modelling, and vulnerability testing to protect sensitive biometric data.",
-      "Manage and mentor a QA team — establishing testing standards, review processes, and quality gates in CI/CD pipelines.",
-      "Drive secure coding practices and perform regular code-level security reviews with the engineering team.",
-      "Report quality metrics and risk posture directly to senior leadership and external compliance stakeholders.",
-    ],
-  },
 ];
 
 const testimonials: Testimonial[] = [
@@ -242,4 +179,149 @@ const projects: Project[] = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const products: Product[] = [
+  {
+    slug: "jumpstart",
+    name: "JumpStart — 14-Day Video Program",
+    price: 47,
+    flagship: true,
+    tagline:
+      "A guided 14-day video program to support your mood through movement — one short session a day.",
+    bullets: [
+      "14 short guided video sessions",
+      "Mood check-ins before and after every day",
+      "New sessions unlock as you go, at your pace",
+    ],
+    checkoutEndpoint: "/api/checkout/jumpstart",
+  },
+  {
+    slug: "coaching",
+    name: "Live Coach Consultation",
+    price: 99,
+    billingSuffix: "/mo",
+    tagline: "A weekly 1-on-1 coaching call — ongoing support, not just a one-off session.",
+    bullets: [
+      "One live call every week",
+      "Book any time that works for you",
+      "Cancel any time from your billing portal",
+    ],
+    checkoutEndpoint: "/api/checkout/coaching",
+  },
+  {
+    slug: "consult",
+    name: "Book a Call",
+    price: 15,
+    tagline: "Not ready for a subscription? Book a one-off Quick Call or Coaching Hour instead.",
+    bullets: [
+      "Quick Call — 15 minutes, $15",
+      "Coaching Hour — 60 minutes, $50",
+      "No account or sign-up needed",
+    ],
+    href: "/consult",
+  },
+  {
+    slug: "planner",
+    name: "30-Day Weight Lifting Planner",
+    price: 27,
+    tagline: "A day-by-day lifting program for beginners who want structure, not guesswork.",
+    bullets: [
+      "30 days of programmed lifts, sets, and reps",
+      "Beginner-friendly progressions",
+      "Printable, phone-friendly PDF",
+    ],
+    pdfFile: "30-day-weight-lifting-planner.pdf",
+    stripeLink: "https://buy.stripe.com/REPLACE_WITH_PLANNER_LINK",
+  },
+  {
+    slug: "workbook",
+    name: "Fitness Goal Workbook",
+    price: 17,
+    tagline: "Set goals you'll actually keep, with a system for tracking the discipline behind them.",
+    bullets: [
+      "Goal-setting worksheets",
+      "Weekly progress trackers",
+      "Habit + discipline checklists",
+    ],
+    pdfFile: "fitness-goal-workbook.pdf",
+    stripeLink: "https://buy.stripe.com/REPLACE_WITH_WORKBOOK_LINK",
+  },
+  {
+    slug: "guide",
+    name: "Fast Food Eating Guide",
+    price: 12,
+    tagline: "Stay on track even when life happens — smarter picks at the drive-thru.",
+    bullets: [
+      "Better-choice breakdowns for major chains",
+      "Macro-friendly swaps",
+      "No-excuses eating-out strategy",
+    ],
+    pdfFile: "fast-food-eating-guide.pdf",
+    stripeLink: "https://buy.stripe.com/REPLACE_WITH_GUIDE_LINK",
+  },
+  {
+    slug: "affirmations",
+    name: "Daily Fitness Affirmations",
+    price: 7,
+    tagline: "Short daily reminders to keep showing up, even on the hard days.",
+    bullets: [
+      "30 daily affirmation cards",
+      "Built around discipline, not motivation",
+      "Read in under a minute a day",
+    ],
+    pdfFile: "daily-fitness-affirmations.pdf",
+    stripeLink: "https://buy.stripe.com/REPLACE_WITH_AFFIRMATIONS_LINK",
+  },
+  {
+    slug: "shopping-list",
+    name: "Weight Loss Shopping List",
+    price: 0,
+    free: true,
+    tagline: "The exact grocery list to stop guessing in the store and start losing weight.",
+    bullets: [
+      "Aisle-by-aisle shopping list",
+      "Budget-friendly staples",
+      "Zero fluff — just what to buy",
+    ],
+    pdfFile: "weight-loss-shopping-list.pdf",
+  },
+];
+
+const fitnessStats: FitnessStat[] = [
+  { label: "Years training", value: "8+" },
+  { label: "Workouts logged", value: "1,200+" },
+  { label: "Programs written", value: "5" },
+  { label: "Rest days skipped", value: "0" },
+];
+
+const fitnessFocus: FitnessFocus[] = [
+  {
+    title: "Strength Training",
+    description:
+      "Progressive lifting programs built around compound movements and consistent overload.",
+  },
+  {
+    title: "Nutrition Discipline",
+    description:
+      "Practical, no-nonsense eating strategies that survive real life — including fast food runs.",
+  },
+  {
+    title: "Habit Systems",
+    description:
+      "Tracking and accountability tools that make showing up the default, not the exception.",
+  },
+  {
+    title: "Mindset Over Motivation",
+    description:
+      "Motivation quits. Discipline doesn't — daily systems for the days you don't feel like it.",
+  },
+];
+
+export {
+  services,
+  technologies,
+  testimonials,
+  projects,
+  products,
+  fitnessStats,
+  fitnessFocus,
+};

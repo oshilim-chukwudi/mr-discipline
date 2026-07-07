@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs ls -la)",
+      "Bash(sort -k5 -n -r)",
+      "Bash(node -e \"console.log\\(require.resolve\\('sharp'\\)\\)\")",
+      "Bash(cd /Users/chukwudioshilim/Documents/Chuks_3DPortofolio/project_3D_developer_portfolio *)",
+      "Bash(git check-ignore *)",
+      "Bash(python3 -c ' *)",
+      "Bash(chmod +x /private/tmp/claude-501/-Users-chukwudioshilim-Documents-Chuks-3DPortofolio-project-3D-developer-portfolio/c4325dc3-7cb3-424f-8182-f68bd8ac20c8/scratchpad/convert_textures.sh)",
+      "Bash(bash /private/tmp/claude-501/-Users-chukwudioshilim-Documents-Chuks-3DPortofolio-project-3D-developer-portfolio/c4325dc3-7cb3-424f-8182-f68bd8ac20c8/scratchpad/convert_textures.sh)",
+      "Bash(cwebp -quiet -q 78 -resize 1920 0 public/herobg.png -o public/herobg.webp)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(curl -sf http://localhost:4173/ -o /dev/null)",
+      "Bash(curl -sf http://localhost:4173/tech -o /dev/null)",
+      "Bash(curl -sf http://localhost:4173/contact -o /dev/null)",
+      "Read(//Applications/**)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(pkill -f \"next start\")",
+      "Bash(pkill -f \"PORT=4173\")",
+      "Bash(lsof -ti:4173)",
+      "Bash(xargs kill)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(find / -iname \"*chromium-cli*\" -maxdepth 6 2>/dev/null | head -20 *)",
+      "Read(//private/tmp/claude-501/bundled-skills/**)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-chukwudioshilim-Documents-Chuks-3DPortofolio-project-3D-developer-portfolio/c4325dc3-7cb3-424f-8182-f68bd8ac20c8/scratchpad/home.png --window-size=1440,900 --virtual-time-budget=6000 http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --screenshot=/private/tmp/claude-501/-Users-chukwudioshilim-Documents-Chuks-3DPortofolio-project-3D-developer-portfolio/c4325dc3-7cb3-424f-8182-f68bd8ac20c8/scratchpad/home.png --window-size=1440,900 --virtual-time-budget=8000 http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --screenshot=/private/tmp/claude-501/-Users-chukwudioshilim-Documents-Chuks-3DPortofolio-project-3D-developer-portfolio/c4325dc3-7cb3-424f-8182-f68bd8ac20c8/scratchpad/home2.png --window-size=1440,900 --virtual-time-budget=15000 http://localhost:3000/)",
+      "Bash(curl -sf http://localhost:3000)",
+      "Bash(break)",
+      "Bash(curl -sf http://localhost:3000 -o /dev/null -w \"status: %{http_code}\\\\n\")"
+    ],
+    "additionalDirectories": [
+      "/Users/chukwudioshilim/Documents/Chuks_3DPortofolio/project_3D_developer_portfolio/src/constants"
+    ]
+  }
+}

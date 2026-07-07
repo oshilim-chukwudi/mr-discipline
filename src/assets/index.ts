@@ -21,11 +21,6 @@ import _tailwind from "./tech/tailwind.png";
 import _typescript from "./tech/typescript.png";
 import _threejs from "./tech/threejs.svg";
 
-import _focal from "./company/focal.png";
-import _delta from "./company/delta.png";
-import _smedan from "./company/smedan.png";
-import _tecom from "./company/tecom.png";
-
 import _carrent from "./carrent.png";
 import _jobit from "./jobit.png";
 import _tripguide from "./tripguide.png";
@@ -57,11 +52,6 @@ export const redux = url(_redux as { src: string } | string);
 export const tailwind = url(_tailwind as { src: string } | string);
 export const typescript = url(_typescript as { src: string } | string);
 export const threejs = url(_threejs as { src: string } | string);
-
-export const focal = url(_focal as { src: string } | string);
-export const delta = url(_delta as { src: string } | string);
-export const smedan = url(_smedan as { src: string } | string);
-export const tecom = url(_tecom as { src: string } | string);
 
 export const carrent = url(_carrent as { src: string } | string);
 export const jobit = url(_jobit as { src: string } | string);
