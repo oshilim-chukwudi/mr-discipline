@@ -128,16 +128,11 @@ export default function ConsultPage() {
                 </span>
               )}
 
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-baseline justify-between gap-4">
                 <h2 className="text-white font-semibold text-[19px] tracking-tight">{option.name}</h2>
-                <div className="flex flex-col items-end shrink-0">
-                  <span className="font-bold text-[24px] tracking-tight tabular-nums text-red-500">
-                    {option.price}
-                  </span>
-                  <span className="text-white/35 text-[12px] font-medium tracking-wide line-through -mt-0.5">
-                    {option.originalPrice}
-                  </span>
-                </div>
+                <span className="font-bold text-[24px] tracking-tight tabular-nums shrink-0 text-red-500">
+                  {option.price}
+                </span>
               </div>
               <p className="mt-1 text-white/40 text-[12.5px] font-medium tracking-wide">{option.duration}</p>
               <p className="mt-3 text-white/60 text-[14px] leading-relaxed font-normal">{option.tagline}</p>
@@ -151,11 +146,14 @@ export default function ConsultPage() {
                 ))}
               </ul>
 
+              <p className="mt-6 text-center text-white/35 text-[13px] font-medium line-through">
+                {option.originalPrice}
+              </p>
               <CalBookButton
                 calLink={option.calLink}
                 namespace={option.namespace}
                 label={`Book — ${option.price}`}
-                className="mt-6 w-full rounded-lg py-3 text-[14px] font-semibold text-white bg-red-600 hover:bg-red-500 transition-colors duration-200"
+                className="mt-2 w-full rounded-lg py-3 text-[14px] font-semibold text-white bg-red-600 hover:bg-red-500 transition-colors duration-200"
               />
             </div>
           ))}
