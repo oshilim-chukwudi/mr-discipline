@@ -9,13 +9,13 @@ const Hero = () => (
   <section className="relative w-full h-screen h-[100svh] mx-auto overflow-hidden snap-start bg-black">
     <div className="absolute inset-0">
       <Image
-        src="/fitness/workouts-logged.png"
+        src="/fitness/hero-lift.jpg"
         alt="Mr. Discipline training"
         fill
         priority
-        className="object-cover object-[80%_center]"
+        className="object-cover object-[65%_center]"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 sm:via-black/70 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 sm:via-black/65 to-black/40" />
     </div>
 
     <div

@@ -63,8 +63,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center gap-2">
           <Image src={logo} alt="logo" width={36} height={36} className="object-contain" priority />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
-            Chukwudi &nbsp;
-            <span className="sm:block hidden"> | Codechuks</span>
+            Mr. Discipline
           </p>
         </Link>
 

@@ -29,7 +29,7 @@ const FreeProductForm = ({ product }: { product: Product }) => {
         "template_5m8ce8w",
         {
           from_name: `Mr. Discipline lead — ${product.name}`,
-          to_name: "Codechuks",
+          to_name: "Mr. Discipline",
           from_email: email,
           to_email: "Chukwudioshilim@gmail.com",
           message: `New free lead magnet signup for "${product.name}" from ${email}.`,
