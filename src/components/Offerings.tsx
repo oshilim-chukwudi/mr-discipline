@@ -1,11 +1,11 @@
 'use client'
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { products } from "../constants";
+import NavigateButton from "./NavigateButton";
 
 const FEATURED_SLUGS = ["jumpstart", "coaching", "consult"];
 
@@ -52,12 +52,12 @@ const Offerings = () => {
               ))}
             </ul>
 
-            <Link
+            <NavigateButton
               href={product.href ?? "/products"}
-              className="mt-6 text-center bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-full transition-colors duration-200"
+              className="mt-6 bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-full transition-colors duration-200"
             >
               Get Started
-            </Link>
+            </NavigateButton>
           </motion.div>
         ))}
       </div>

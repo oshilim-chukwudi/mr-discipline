@@ -13,6 +13,7 @@ const Hero = () => (
         alt="Mr. Discipline training"
         fill
         priority
+        sizes="100vw"
         className="object-cover object-[65%_center]"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 sm:via-black/65 to-black/40" />
@@ -47,9 +48,10 @@ const Hero = () => (
           href="/consult"
           className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-medium py-3 px-7 rounded-full transition-colors duration-200"
         >
-          <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[10px]">
-            ▶
-          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M8 3v4M16 3v4M3 10h18" strokeLinecap="round" />
+          </svg>
           Book a call
         </Link>
       </div>

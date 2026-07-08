@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['three', 'maath', '@react-three/fiber', '@react-three/drei'],
+  compress: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'randomuser.me',
-        pathname: '/api/portraits/**',
-      },
-    ],
+    formats: ['image/avif', 'image/webp'],
   },
   async headers() {
     return [

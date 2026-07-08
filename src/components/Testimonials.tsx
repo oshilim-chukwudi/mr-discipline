@@ -55,7 +55,7 @@ const TestimonialCard = ({ name, role, quote, photo }: TestimonialItem) => (
     <p className="mt-4 text-white/70 text-[14px] leading-relaxed">&ldquo;{quote}&rdquo;</p>
     <div className="mt-6 flex items-center gap-3">
       <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 border border-white/10">
-        <Image src={photo} alt={name} fill className="object-cover" />
+        <Image src={photo} alt={name} fill sizes="44px" className="object-cover" />
       </div>
       <div>
         <p className="text-white font-bold text-[14px]">{name}</p>
