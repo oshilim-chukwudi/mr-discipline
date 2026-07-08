@@ -45,10 +45,10 @@ const Fitness = () => (
 
     <motion.div
       variants={fadeIn("up", "tween", 0.2, 1)}
-      className="mt-16 flex flex-wrap sm:flex-nowrap divide-x divide-white/10 border-y border-white/10 py-8"
+      className="mt-16 grid grid-cols-2 sm:flex sm:flex-nowrap border-y border-white/10 py-8 [&>div]:border-white/10 max-sm:[&>div:nth-child(odd)]:border-r max-sm:[&>div:nth-child(-n+2)]:pb-6 max-sm:[&>div:nth-child(n+3)]:pt-6 max-sm:[&>div:nth-child(n+3)]:border-t sm:divide-x sm:divide-white/10"
     >
       {fitnessStats.map((stat) => (
-        <div key={stat.label} className="flex-1 min-w-[45%] sm:min-w-0 text-center px-4">
+        <div key={stat.label} className="text-center px-4 sm:flex-1">
           <p className="text-red-500 font-black text-[30px] sm:text-[36px] tracking-tight">
             {stat.value}
           </p>
