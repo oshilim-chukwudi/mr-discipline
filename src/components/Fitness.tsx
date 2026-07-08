@@ -1,7 +1,6 @@
 'use client'
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -10,76 +9,53 @@ import { fitnessStats, fitnessFocus } from "../constants";
 
 const Fitness = () => (
   <>
-    <div className="flex lg:flex-row flex-col-reverse gap-14 items-center">
-      <motion.div variants={fadeIn("right", "tween", 0.2, 1)} className="flex-1">
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-secondary text-[12px] font-medium">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-          Fitness Enthusiast
-        </span>
+    <motion.div variants={fadeIn("up", "tween", 0.1, 1)} className="max-w-2xl">
+      <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-secondary text-[12px] font-medium">
+        <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+        Discipline Coach
+      </span>
 
-        <h1 className="mt-4 font-black text-white lg:text-[56px] sm:text-[44px] text-[34px] leading-tight">
-          Code by day.
-          <br />
-          <span className="text-red-500">Iron</span> by night.
-        </h1>
+      <h1 className="mt-4 font-black text-white lg:text-[56px] sm:text-[44px] text-[34px] leading-tight">
+        Systems over
+        <br />
+        <span className="text-red-500">motivation.</span>
+      </h1>
 
-        <p className="mt-5 text-secondary text-[17px] max-w-lg leading-[28px]">
-          AI security engineering pays the bills. Training with discipline keeps me
-          sharp for it. Same mindset either way — show up, follow the system, do the
-          work that isn&apos;t exciting yet.
-        </p>
+      <p className="mt-5 text-secondary text-[17px] max-w-lg leading-[28px]">
+        Motivation fades by Wednesday. A system doesn&apos;t care how you feel —
+        you follow it anyway. That&apos;s the whole philosophy behind JumpStart,
+        coaching, and everything I teach.
+      </p>
 
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Link
-            href="/products"
-            className="bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-7 rounded-full transition-colors duration-200"
-          >
-            Shop Mr. Discipline
-          </Link>
-          <Link
-            href="/contact"
-            className="border border-white/15 hover:border-white/30 text-white font-medium py-3 px-7 rounded-full transition-colors duration-200"
-          >
-            Get in touch
-          </Link>
-        </div>
-      </motion.div>
-
-      <motion.div
-        variants={fadeIn("left", "tween", 0.2, 1)}
-        className="relative w-full max-w-[320px] aspect-square shrink-0"
-      >
-        <div className="relative w-full h-full rounded-[32px] overflow-hidden border border-white/10">
-          <Image
-            src="/fitness/workouts-logged.png"
-            alt=""
-            fill
-            className="object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-transparent to-black/50" />
-        </div>
-        <div className="absolute -bottom-6 -left-6 bg-black-100 border border-white/10 rounded-2xl px-5 py-4 shadow-card">
-          <p className="text-white font-black text-[24px]">{fitnessStats[0].value}</p>
-          <p className="text-secondary text-[12px]">{fitnessStats[0].label}</p>
-        </div>
-        <div className="absolute -top-5 -right-4 bg-black-100 border border-red-500/30 rounded-2xl px-4 py-3 shadow-card">
-          <p className="text-red-500 font-black text-[18px]">{fitnessStats[1].value}</p>
-          <p className="text-secondary text-[11px]">{fitnessStats[1].label}</p>
-        </div>
-      </motion.div>
-    </div>
-
-    <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-5">
-      {fitnessStats.map((stat) => (
-        <div
-          key={stat.label}
-          className="text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10"
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link
+          href="/products"
+          className="bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-7 rounded-full transition-colors duration-200"
         >
-          <p className="text-white font-black text-[26px]">{stat.value}</p>
-          <p className="text-secondary text-[12px] mt-1">{stat.label}</p>
+          Shop Mr. Discipline
+        </Link>
+        <Link
+          href="/contact"
+          className="border border-white/15 hover:border-white/30 text-white font-medium py-3 px-7 rounded-full transition-colors duration-200"
+        >
+          Get in touch
+        </Link>
+      </div>
+    </motion.div>
+
+    <motion.div
+      variants={fadeIn("up", "tween", 0.2, 1)}
+      className="mt-16 flex flex-wrap sm:flex-nowrap divide-x divide-white/10 border-y border-white/10 py-8"
+    >
+      {fitnessStats.map((stat) => (
+        <div key={stat.label} className="flex-1 min-w-[45%] sm:min-w-0 text-center px-4">
+          <p className="text-red-500 font-black text-[30px] sm:text-[36px] tracking-tight">
+            {stat.value}
+          </p>
+          <p className="mt-1 text-white/60 text-[12px] uppercase tracking-wide">{stat.label}</p>
         </div>
       ))}
-    </div>
+    </motion.div>
 
     <motion.div variants={textVariant()} className="mt-20">
       <p className={styles.sectionSubText}>What I focus on</p>

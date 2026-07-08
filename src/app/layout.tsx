@@ -16,30 +16,29 @@ export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://chukwudi-portfolio-snowy.vercel.app"
   ),
-  title: "Chukwudi Oshilim | AI Security Engineer",
+  title: "Mr. Discipline | Chukwudi Oshilim",
   description:
-    "Portfolio of Chukwudi Oshilim — AI Security Engineer & Full Stack Developer at BioAro. Building scalable web apps, secure AI-driven systems, and 3D experiences.",
+    "Mr. Discipline — the 14-day JumpStart program, 1-on-1 coaching, and no-nonsense discipline systems from Chukwudi Oshilim.",
   keywords: [
-    "AI Security Engineer",
-    "Full Stack Developer",
-    "QA Security",
-    "Tech Lead",
-    "React",
-    "Next.js",
-    "TypeScript",
+    "Mr. Discipline",
+    "fitness coaching",
+    "discipline coaching",
+    "JumpStart program",
+    "accountability coach",
+    "1-on-1 coaching",
   ],
   authors: [{ name: "Chukwudi Oshilim" }],
   openGraph: {
-    title: "Chukwudi Oshilim | AI Security Engineer",
+    title: "Mr. Discipline | Chukwudi Oshilim",
     description:
-      "AI Security Engineer and Full Stack Developer. Building scalable, secure, AI-driven web applications.",
+      "The 14-day JumpStart program, 1-on-1 coaching, and no-nonsense discipline systems.",
     type: "website",
     locale: "en_CA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chukwudi Oshilim | AI Security Engineer",
-    description: "AI Security Engineer and Full Stack Developer.",
+    title: "Mr. Discipline | Chukwudi Oshilim",
+    description: "Discipline coaching, JumpStart program, and 1-on-1 calls.",
   },
   icons: { icon: "/logo.svg?v=2" },
 };

@@ -1,8 +1,6 @@
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Tech from "../components/Tech";
-import Works from "../components/Works";
-import Feedbacks from "../components/Feedbacks";
+import Offerings from "../components/Offerings";
 import Fitness from "../components/Fitness";
 import Contact from "../components/Contact";
 
@@ -11,9 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <Tech />
-      <Works />
-      <Feedbacks />
+      <Offerings />
       <Fitness />
       <Contact />
     </>

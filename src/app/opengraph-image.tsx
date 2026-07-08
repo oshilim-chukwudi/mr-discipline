@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Chukwudi Oshilim — AI Security Engineer, Full-Stack Developer & Mr. Discipline";
+export const alt = "Mr. Discipline — JumpStart program, 1-on-1 coaching, and discipline systems from Chukwudi Oshilim";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,12 +41,12 @@ export default async function Image() {
             display: "flex",
             marginTop: 24,
             color: "#ffffff",
-            fontSize: 84,
+            fontSize: 76,
             fontWeight: 900,
             lineHeight: 1.05,
           }}
         >
-          Chukwudi Oshilim
+          Systems over motivation.
         </div>
         <div
           style={{
@@ -57,7 +57,7 @@ export default async function Image() {
             fontWeight: 500,
           }}
         >
-          AI Security Engineer &amp; Full-Stack Developer
+          JumpStart program, 1-on-1 coaching &amp; discipline systems
         </div>
       </div>
     ),
