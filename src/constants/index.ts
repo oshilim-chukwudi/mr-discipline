@@ -30,8 +30,8 @@ export interface FitnessFocus {
 
 export const navLinks: NavLink[] = [
   { id: "about", title: "About" },
-  { id: "offerings", title: "Offers" },
   { id: "fitness", title: "Fitness" },
+  { id: "offerings", title: "Offers" },
   { id: "contact", title: "Contact" },
 ];
 
