@@ -7,3 +7,23 @@ export function getStripe() {
   }
   return new Stripe(secretKey, { apiVersion: "2026-06-24.dahlia" });
 }
+
+export async function createDigitalProductCheckoutUrl({
+  priceId,
+  slug,
+  origin,
+}: {
+  priceId: string;
+  slug: string;
+  origin: string;
+}) {
+  const stripe = getStripe();
+  const session = await stripe.checkout.sessions.create({
+    mode: "payment",
+    line_items: [{ price: priceId, quantity: 1 }],
+    metadata: { product_slug: slug },
+    success_url: `${origin}/downloads/${slug}?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${origin}/products`,
+  });
+  return session.url;
+}

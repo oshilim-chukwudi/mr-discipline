@@ -17,7 +17,7 @@ const StarWrapper = <P extends object>(
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
         data-section={idName}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0 min-h-screen flex flex-col justify-center snap-start`}
+        className={`${styles.padding} max-w-7xl mx-auto relative z-0 flex flex-col justify-center snap-start`}
       >
         <span className="hash-span" id={idName}>
           &nbsp;

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { menu, close } from "../assets";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -61,7 +61,16 @@ const Navbar = () => {
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <Image src={logo} alt="logo" width={36} height={36} className="object-contain" priority />
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/15 flex-shrink-0">
+            <Image
+              src="/fitness/overhead-press-square.jpg"
+              alt="Chukwudi Oshilim"
+              fill
+              sizes="36px"
+              className="object-cover"
+              priority
+            />
+          </div>
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             Mr. Discipline
           </p>

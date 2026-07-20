@@ -31,9 +31,31 @@ export interface FitnessFocus {
 export const navLinks: NavLink[] = [
   { id: "about", title: "About" },
   { id: "fitness", title: "Fitness" },
+  { id: "workouts", title: "Workouts" },
   { id: "offerings", title: "Offers" },
   { id: "contact", title: "Contact" },
 ];
+
+export interface WorkoutPhoto {
+  src: string;
+  alt: string;
+}
+
+// Update with the week's new Reel URLs and photos — the only edit needed
+// to publish that week's workout. Leave reels empty to fall back to a
+// plain "follow me" card instead of embeds.
+export const latestWorkout = {
+  reels: [
+    "https://www.instagram.com/reel/Da_MWDeygqc/?igsh=dDc1cjJ5ajVvZGo2",
+    "https://www.instagram.com/reel/DatWsM1yVxu/?igsh=cHF2d3U1bDF5bDlr",
+  ] as string[],
+  photos: [
+    { src: "/fitness/back-lift.jpg", alt: "Chukwudi performing a barbell back exercise" },
+    { src: "/fitness/back-lift-dark.jpg", alt: "Chukwudi training in low light" },
+    { src: "/fitness/overhead-press.jpg", alt: "Chukwudi pressing 30kg overhead" },
+    { src: "/fitness/snow-lift.jpg", alt: "Chukwudi lifting outdoors in the snow" },
+  ] as WorkoutPhoto[],
+};
 
 const products: Product[] = [
   {
@@ -76,6 +98,19 @@ const products: Product[] = [
     href: "/consult",
   },
   {
+    slug: "greek-god",
+    name: "The Greek God Program",
+    price: 22,
+    tagline: "A 4-day training system for broad shoulders, a narrow waist, and a body built on proportion.",
+    bullets: [
+      "4 training days a week, full exercise breakdown",
+      "Built around the shoulder-to-waist V-taper look",
+      "One progression rule — no guesswork after day one",
+    ],
+    pdfFile: "greek-god-program.pdf",
+    checkoutEndpoint: "/api/checkout/greek-god",
+  },
+  {
     slug: "planner",
     name: "30-Day Weight Lifting Planner",
     price: 27,
@@ -86,7 +121,7 @@ const products: Product[] = [
       "Printable, phone-friendly PDF",
     ],
     pdfFile: "30-day-weight-lifting-planner.pdf",
-    stripeLink: "https://buy.stripe.com/REPLACE_WITH_PLANNER_LINK",
+    checkoutEndpoint: "/api/checkout/planner",
   },
   {
     slug: "workbook",
@@ -99,7 +134,7 @@ const products: Product[] = [
       "Habit + discipline checklists",
     ],
     pdfFile: "fitness-goal-workbook.pdf",
-    stripeLink: "https://buy.stripe.com/REPLACE_WITH_WORKBOOK_LINK",
+    checkoutEndpoint: "/api/checkout/workbook",
   },
   {
     slug: "guide",
@@ -112,7 +147,7 @@ const products: Product[] = [
       "No-excuses eating-out strategy",
     ],
     pdfFile: "fast-food-eating-guide.pdf",
-    stripeLink: "https://buy.stripe.com/REPLACE_WITH_GUIDE_LINK",
+    checkoutEndpoint: "/api/checkout/guide",
   },
   {
     slug: "affirmations",
@@ -125,7 +160,20 @@ const products: Product[] = [
       "Read in under a minute a day",
     ],
     pdfFile: "daily-fitness-affirmations.pdf",
-    stripeLink: "https://buy.stripe.com/REPLACE_WITH_AFFIRMATIONS_LINK",
+    checkoutEndpoint: "/api/checkout/affirmations",
+  },
+  {
+    slug: "discipline-reset",
+    name: "The Discipline Reset",
+    price: 0,
+    free: true,
+    tagline: "A short reset guide for the days motivation disappears and you need a system instead.",
+    bullets: [
+      "What to do on the days you don't feel like it",
+      "A quick reset routine, not a pep talk",
+      "Built around discipline, not motivation",
+    ],
+    pdfFile: "discipline-reset.pdf",
   },
   {
     slug: "shopping-list",
