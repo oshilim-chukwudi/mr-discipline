@@ -150,17 +150,17 @@ const products: Product[] = [
     checkoutEndpoint: "/api/checkout/guide",
   },
   {
-    slug: "affirmations",
-    name: "Daily Fitness Affirmations",
+    slug: "laws",
+    name: "30 Laws of Discipline",
     price: 7,
-    tagline: "Short daily reminders to keep showing up, even on the hard days.",
+    tagline: "30 non-negotiable rules to keep showing up, even on the hard days.",
     bullets: [
-      "30 daily affirmation cards",
+      "30 daily discipline laws",
       "Built around discipline, not motivation",
       "Read in under a minute a day",
     ],
-    pdfFile: "daily-fitness-affirmations.pdf",
-    checkoutEndpoint: "/api/checkout/affirmations",
+    pdfFile: "laws-of-discipline.pdf",
+    checkoutEndpoint: "/api/checkout/laws",
   },
   {
     slug: "discipline-reset",

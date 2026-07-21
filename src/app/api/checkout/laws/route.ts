@@ -4,10 +4,10 @@ import { createDigitalProductCheckoutUrl } from "../../../../lib/stripe";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
-  const priceId = process.env.STRIPE_AFFIRMATIONS_PRICE_ID;
+  const priceId = process.env.STRIPE_LAWS_PRICE_ID;
   if (!priceId) {
     return NextResponse.json(
-      { error: "Affirmations checkout is not configured yet." },
+      { error: "30 Laws of Discipline checkout is not configured yet." },
       { status: 500 }
     );
   }
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     "http://localhost:3000";
 
   try {
-    const url = await createDigitalProductCheckoutUrl({ priceId, slug: "affirmations", origin });
+    const url = await createDigitalProductCheckoutUrl({ priceId, slug: "laws", origin });
     return NextResponse.json({ url });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Checkout failed";

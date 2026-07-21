@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const DOWNLOAD_SLUGS = ["planner", "workbook", "guide", "affirmations", "shopping-list"];
+const DOWNLOAD_SLUGS = ["planner", "workbook", "guide", "laws", "shopping-list"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mr-discipline.vercel.app";
