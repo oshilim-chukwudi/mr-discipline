@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "../../../lib/supabase/server";
 import { getJumpstartAccess } from "../../../lib/program/access";
 import MagicLinkForm from "../../../components/program/MagicLinkForm";
+import ProgressPhotos from "../../../components/program/ProgressPhotos";
 import { formatDuration, ProgramContentRow, UserProgressRow } from "../../../types/program";
 
 export const metadata = {
@@ -204,6 +205,8 @@ export default async function JumpstartHubPage() {
             );
           })}
         </div>
+
+        <ProgressPhotos programSlug={PROGRAM_SLUG} />
       </div>
 
       <div className="border-t border-white/10 bg-black/80 backdrop-blur-sm py-6 px-6 sm:px-10">
