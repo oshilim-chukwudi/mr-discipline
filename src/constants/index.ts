@@ -99,7 +99,7 @@ const products: Product[] = [
   },
   {
     slug: "greek-god",
-    name: "The Greek God Program",
+    name: "The Greek God Physique Program",
     price: 22,
     tagline: "A 4-day training system for broad shoulders, a narrow waist, and a body built on proportion.",
     bullets: [
