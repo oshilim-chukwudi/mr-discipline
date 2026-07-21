@@ -23,29 +23,37 @@ const FreeProductForm = ({ product }: { product: Product }) => {
     setLoading(true);
     setError(false);
 
-    emailjs
-      .send(
-        "service_s7lter8",
-        "template_5m8ce8w",
-        {
-          from_name: `Mr. Discipline lead — ${product.name}`,
-          to_name: "Mr. Discipline",
-          from_email: email,
-          to_email: "Chukwudioshilim@gmail.com",
-          message: `New free lead magnet signup for "${product.name}" from ${email}.`,
-        },
-        "9xtDvDVnd2Wj4C1Vk"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          router.push(`/downloads/${product.slug}`);
-        },
-        () => {
-          setLoading(false);
-          setError(true);
-        }
-      );
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, productSlug: product.slug, productName: product.name }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Lead capture failed");
+
+        // Best-effort notification — don't block the download on this.
+        emailjs
+          .send(
+            "service_s7lter8",
+            "template_5m8ce8w",
+            {
+              from_name: `Mr. Discipline lead — ${product.name}`,
+              to_name: "Mr. Discipline",
+              from_email: email,
+              to_email: "Chukwudioshilim@gmail.com",
+              message: `New free lead magnet signup for "${product.name}" from ${email}.`,
+            },
+            "9xtDvDVnd2Wj4C1Vk"
+          )
+          .catch(() => {});
+
+        setLoading(false);
+        router.push(`/downloads/${product.slug}`);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+      });
   };
 
   return (
